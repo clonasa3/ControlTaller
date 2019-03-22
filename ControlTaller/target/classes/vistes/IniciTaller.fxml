@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import org.controlsfx.glyphfont.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="215.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.IniciTallerController">
+   <children>
+      <Button fx:id="btnIniciClient" layoutX="66.0" layoutY="169.0" mnemonicParsing="false" onAction="#obrirVistaClients" text="CLIENTS" />
+      <Button fx:id="btnIniciVehicles" layoutX="241.0" layoutY="169.0" mnemonicParsing="false" onAction="#obrirVistaVehicles" text="VEHICLES" />
+      <Button fx:id="btnIniciTaller" layoutX="425.0" layoutY="169.0" mnemonicParsing="false" onAction="#obrirVistaTaller" text="TALLER" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="21.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="429.0">
+         <image>
+            <Image url="@../../../img/ClientesNoFondo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="200.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="250.0">
+         <image>
+            <Image url="@../../../img/vehiclesNoFondo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="377.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="378.0" AnchorPane.rightAnchor="250.0">
+         <image>
+            <Image url="@../../../img/tallerNoFondo.png" />
+         </image>
+      </ImageView>      
+   </children>
+</AnchorPane>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import org.controlsfx.glyphfont.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TallerController">
+   <children>
+      <SplitPane dividerPositions="0.5060120240480962" layoutX="195.0" layoutY="94.0" prefHeight="404.0" prefWidth="590.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <GridPane layoutX="78.0" layoutY="156.0" prefHeight="402.0" prefWidth="356.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <TextField fx:id="txtIncidenciaId" GridPane.columnIndex="1" />
+                        <TextField fx:id="txtIdVehicle" GridPane.columnIndex="3" />
+                        <Label text="Id Incidència" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <Label text="Id Vehicle" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <Button fx:id="btnIncidenciaNou" mnemonicParsing="false" onMouseClicked="#guardarIncidencia" prefHeight="25.0" prefWidth="94.0" text="Nou" GridPane.rowIndex="7">
+                           <graphic>
+                              <Glyph fontFamily="FontAwesome" fontSize="10" icon="PLUS" />
+                           </graphic>
+                        </Button>
+                        <Button fx:id="btnIncidenciaModificar" mnemonicParsing="false" onMouseClicked="#modificarIncidencia" prefHeight="25.0" prefWidth="94.0" text="Modificar" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                           <graphic>
+                              <Glyph fontFamily="FontAwesome" fontSize="10" icon="PENCIL" />
+                           </graphic>
+                        </Button>
+                        <Button fx:id="btnIncidenciaEliminar" mnemonicParsing="false" onMouseClicked="#eliminarEntrada" prefHeight="25.0" prefWidth="88.0" text="Eliminar" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                           <graphic>
+                              <Glyph fontFamily="FontAwesome" fontSize="10" icon="TRASH" />
+                           </graphic>
+                        </Button>
+                        <Button fx:id="btnHome" mnemonicParsing="false" onAction="#tornarHome" prefHeight="25.0" prefWidth="95.0" text="Sortir" GridPane.columnIndex="3" GridPane.rowIndex="7">
+                           <graphic>
+                              <Glyph fontFamily="FontAwesome" fontSize="10" icon="HOME" />
+                           </graphic>
+                        </Button>
+                        <TextArea fx:id="txtIncidenciaActuacio" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3" />
+                        <Label text="Actuacions" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                        <TextArea fx:id="txtIncidenciaAveria" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="2" />
+                        <Label text="Avería" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                        <Label text="Imatge" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                        <Pane prefHeight="88.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="5" GridPane.rowSpan="2">
+                           <children>
+                              <ImageView fx:id="imgIncidenciaImatge" fitHeight="150.0" fitWidth="267.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                        </Pane>
+                        <Button fx:id="btnAfegirImatge" alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#cercarImatge" text="Afegir Img." textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                        <Button fx:id="btnEliminarImatge" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Eliminar Img." GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                        <Label text="Entrada" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                        <Label text="Sortida" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                        <DatePicker fx:id="dpEntrada" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <DatePicker fx:id="dpSortida" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <TableView fx:id="twEntradesTaller" layoutX="13.0" layoutY="101.0" onMouseClicked="#dobleClick" prefHeight="402.0" prefWidth="226.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy></TableView>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
