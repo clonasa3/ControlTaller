@@ -15,6 +15,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.control.cell.PropertyValueFactory;
 import servei.PersonaServiceImpl;
 import servei.VehicleServiceImpl;
@@ -47,7 +48,8 @@ public class VehiclesController {
 	private Button btnModificarVehicle;
 	@FXML
 	private Button btnHome;
-	
+	@FXML
+	private ToggleButton tglBuscarVehiculos;
 	private int posicioSeleccionada=-3;
 	private int posicioGuardada;
 	//Table View de Vehicles
@@ -70,7 +72,7 @@ public class VehiclesController {
 	 * tenim una persona seleccionada a clientController i cliquem anar a veure els seus vehicles.
 	 */
 	private Persona personaPassada;
-	
+	private boolean filtresActivats = false;
 	//Vehicle seleccionat al dobleClick
 	private Vehicle vehicleSeleccionat;
 
@@ -186,6 +188,26 @@ public class VehiclesController {
 		txtVehicleObservacions.setText("");
 		
 		refrescarTaula();
+	}
+	@FXML
+	public void filtresVehicleModel() {
+		if(filtresActivats) {
+			if(vehicleSeleccionat==null) {
+				GestorVistes.emplenarTableView(vehicleServeiImpl.llistarVehiclesModel(txtVehcileModel.getText()), twVehicles);
+			}
+		}
+
+	}
+	/**
+	 * Permet activar el sistema de filtres de la vista
+	 */
+	@FXML
+	public void activarFiltres() {
+		if(filtresActivats) {
+			filtresActivats = false;
+		}else {
+			filtresActivats=true;
+		}
 	}
 		
 	@FXML

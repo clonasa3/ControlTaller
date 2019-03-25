@@ -29,9 +29,9 @@
                     </rowConstraints>
                      <children>
                         <TextField fx:id="txtIdClient" disable="true" GridPane.columnIndex="1" />
-                        <TextField fx:id="txtDniClient"  onKeyReleased="#filtrePersonesTWNomDNI" GridPane.columnIndex="3" />
-                        <TextField fx:id="txtNomClient"  onKeyReleased="#filtrePersonesTWNomDNI" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField fx:id="txtEmailClient"  GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        <TextField fx:id="txtDniClient" onKeyReleased="#filtrePersonesTWNomDNI" GridPane.columnIndex="3" />
+                        <TextField fx:id="txtNomClient" onKeyReleased="#filtrePersonesTWNomDNI" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="txtEmailClient" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                         <TextField fx:id="txtDireccioClient" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <TextField fx:id="txtPoblacioClient" GridPane.columnIndex="3" GridPane.rowIndex="2" />
                         <TextField fx:id="txtTelefonClient" GridPane.columnIndex="1" GridPane.rowIndex="3" />
@@ -44,31 +44,36 @@
                         <Label text="Població" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
                         <Label text="Telefon" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
                         <Label text="Mobil" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-                        <Button fx:id="btnNouPersona" mnemonicParsing="false" onMouseClicked="#guardarPersona" prefHeight="25.0" prefWidth="94.0" text="Nou" GridPane.rowIndex="4">
+                        <Button fx:id="btnNouPersona" mnemonicParsing="false" onMouseClicked="#guardarPersona" prefHeight="25.0" prefWidth="94.0" text="Nou" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                            <graphic>
                               <Glyph fontFamily="FontAwesome" fontSize="10" icon="PLUS" />
                            </graphic>
                         </Button>
-                        <Button fx:id="btnModificarPersona" onMouseClicked="#modificarPersona" mnemonicParsing="false" prefHeight="25.0" prefWidth="94.0" text="Modificar" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                        <Button fx:id="btnModificarPersona" mnemonicParsing="false" onMouseClicked="#modificarPersona" prefHeight="25.0" prefWidth="94.0" text="Modificar" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                            <graphic>
                               <Glyph fontFamily="FontAwesome" fontSize="10" icon="PENCIL" />
                            </graphic>
                         </Button>
-                        <Button fx:id="btnEliminarPersona" onMouseClicked="#eliminarPersona" mnemonicParsing="false" prefHeight="25.0" prefWidth="88.0" text="Eliminar" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                        <Button fx:id="btnEliminarPersona" mnemonicParsing="false" onMouseClicked="#eliminarPersona" prefHeight="25.0" prefWidth="88.0" text="Eliminar" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                            <graphic>
                               <Glyph fontFamily="FontAwesome" fontSize="10" icon="TRASH" />
                            </graphic>
                         </Button>
-                        <Button fx:id="btnVehicles" mnemonicParsing="false" onAction="#obrirVistaVehicles" prefHeight="25.0" prefWidth="95.0" text="Vehicles" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                        <Button fx:id="btnVehicles" mnemonicParsing="false" onAction="#obrirVistaVehicles" prefHeight="25.0" prefWidth="95.0" text="Vehicles" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                            <graphic>
                               <Glyph fontFamily="FontAwesome" fontSize="10" icon="BICYCLE" />
                            </graphic>
                         </Button>
-                        <Button fx:id="btnHome" mnemonicParsing="false" onAction="#tornarHome" prefHeight="25.0" prefWidth="95.0" text="Sortir" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                        <Button fx:id="btnHome" mnemonicParsing="false" onAction="#tornarHome" prefHeight="25.0" prefWidth="95.0" text="Sortir" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
                            <graphic>
                               <Glyph fontFamily="FontAwesome" fontSize="10" icon="HOME" />
                            </graphic>
                         </Button>
+                        <ToggleButton fx:id="tglBuscarClientes" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#activarBuscar" prefHeight="25.0" prefWidth="97.0" text="Buscar" textAlignment="RIGHT" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                            <graphic>
+                              <Glyph fontFamily="FontAwesome" fontSize="10" icon="SEARCH" />
+                           </graphic>
+                       </ToggleButton>
                         
 
                      </children>

@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.control.cell.PropertyValueFactory;
 import servei.PersonaServiceImpl;
 
@@ -40,7 +41,8 @@ public class ClientsController {
 	private TextField txtTelefonClient;
 	@FXML
 	private TextField txtMobilClient;
-	
+	@FXML
+	private ToggleButton tglBuscarClientes;
 	
 	//TableView
 	@FXML
@@ -77,6 +79,7 @@ public class ClientsController {
 	int indexTw = -99;
 	int indexTwGuardat;
 	
+	private boolean busquedaActiva=false;
 	
 	ObservableList<Persona> obPersona = null;
 	
@@ -175,10 +178,12 @@ public class ClientsController {
 	
 	//Filtrar TableView
 	public void filtrePersonesTWNomDNI(){
-		
-		if(personaSeleccionada==null) {
-			GestorVistes.emplenarTableView(psi.cercarPersonaDniNom(txtDniClient.getText(), txtNomClient.getText()),twClients);
+		if(busquedaActiva) {
+			if(personaSeleccionada==null) {
+				GestorVistes.emplenarTableView(psi.cercarPersonaDniNom(txtDniClient.getText(), txtNomClient.getText()),twClients);
+			}
 		}
+
 	}
 	
 	//Metode per omplir els camps de text a partir de una persona
@@ -192,6 +197,20 @@ public class ClientsController {
 		txtTelefonClient.setText(p.getTlfFix());
 		txtMobilClient.setText(p.getTlfMobil());
 		btnNouPersona.setDisable(true);
+	}
+	
+	/**
+	 * Activar el Toggle pone en On el sistema de Busqueda del controlador
+	 * i permite filtrar conetnidos del TableView con los Text Field
+	 * 
+	 */
+	@FXML
+	private void activarBuscar() {
+		if(!busquedaActiva) {
+			busquedaActiva=true;
+		}else {
+			busquedaActiva=false;
+		}		
 	}
 	
 	@SuppressWarnings("unchecked")

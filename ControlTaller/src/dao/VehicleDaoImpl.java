@@ -46,7 +46,10 @@ public class VehicleDaoImpl implements VehicleDao {
 	
 	@Override
 	public List<Vehicle> llistarVechilesPersona(Persona persona){
-		//SELECT vehicle from Vehcile veichle WHERE vechile.personaVehiculo.id equals :idPersonaPassada
+		Vehicle v = new Vehicle();
+		//String consulta = "SELECT vehicle from Vehcile  WHERE vechile.personaVehiculo.id equals :idPersonaPassada";
+		
+		
 		return null;
 	}
 
@@ -158,6 +161,32 @@ public class VehicleDaoImpl implements VehicleDao {
 			em.close();
 		}
 		
+	}
+
+	@Override
+	public List<Vehicle> llistarVehiclesModel(String model) {
+		List<Vehicle> llistaVehicles = new ArrayList<>();
+		String consulta = "Select v FROM Vehicle v WHERE v.nomVehicle LIKE :model";
+		try {
+			em=emf.createEntityManager();
+			Query query = em.createQuery(consulta);
+			query.setParameter("model", "%"+model+"%");
+			em.getTransaction().begin();
+			llistaVehicles=query.getResultList();
+			em.getTransaction().commit();
+			
+		}catch (Exception e) {
+			log.error(e.getMessage());
+		}finally {
+			em.close();
+		}
+		return llistaVehicles;
+	}
+
+	@Override
+	public List<Vehicle> llistarVehicleMarca(String marca) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 
