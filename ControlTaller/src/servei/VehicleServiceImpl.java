@@ -43,9 +43,15 @@ public class VehicleServiceImpl implements VehicleService{
 	}
 
 	@Override
-	public List<Vehicle> llistarVehiclesModel(String model) {
+	public List<Vehicle> llistarVehiclesModelAndMarcaAndId(String model, String marca, int id, String identificadorVehicle) {
 
-		return vDaoImpl.llistarVehiclesModel(model);
+		return vDaoImpl.llistarVehiclesModelAndMarcaAndId(model, marca, id, identificadorVehicle);
+	}
+	
+	@Override
+	public List<Vehicle> llistarVehiclesModelAndMarcaAndIdentificador(String model, String marca, String identificadorVehicle) {
+
+		return vDaoImpl.llistarVehiclesModelAndMarcaAndIdentificador(model, marca, identificadorVehicle);
 	}
 
 }

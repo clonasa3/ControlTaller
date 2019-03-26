@@ -164,13 +164,37 @@ public class VehicleDaoImpl implements VehicleDao {
 	}
 
 	@Override
-	public List<Vehicle> llistarVehiclesModel(String model) {
+	public List<Vehicle> llistarVehiclesModelAndMarcaAndId(String model, String marca, int id, String identificadorVehicle) {
 		List<Vehicle> llistaVehicles = new ArrayList<>();
-		String consulta = "Select v FROM Vehicle v WHERE v.nomVehicle LIKE :model";
+		String consulta = "Select v FROM Vehicle v WHERE v.nomVehicle LIKE :model AND v.marcaVehicle LIKE :marca AND v.codiVehicle LIKE :id AND v.identificadorVehicle LIKE :identificadorVehicle";
 		try {
 			em=emf.createEntityManager();
 			Query query = em.createQuery(consulta);
 			query.setParameter("model", "%"+model+"%");
+			query.setParameter("marca", "%"+marca+"%");
+			query.setParameter("id", "%" + id + "%");
+			query.setParameter("identificadorVehicle", "%"+identificadorVehicle+"%");
+			em.getTransaction().begin();
+			llistaVehicles=query.getResultList();
+			em.getTransaction().commit();
+			
+		}catch (Exception e) {
+			log.error(e.getMessage());
+		}finally {
+			em.close();
+		}
+		return llistaVehicles;
+	}
+	@Override
+	public List<Vehicle> llistarVehiclesModelAndMarcaAndIdentificador(String model, String marca, String identificadorVehicle) {
+		List<Vehicle> llistaVehicles = new ArrayList<>();
+		String consulta = "Select v FROM Vehicle v WHERE v.nomVehicle LIKE :model AND v.marcaVehicle LIKE :marca AND v.identificadorVehicle LIKE :identificadorVehicle";
+		try {
+			em=emf.createEntityManager();
+			Query query = em.createQuery(consulta);
+			query.setParameter("model", "%"+model+"%");
+			query.setParameter("marca", "%"+marca+"%");
+			query.setParameter("identificadorVehicle", "%"+identificadorVehicle+"%");
 			em.getTransaction().begin();
 			llistaVehicles=query.getResultList();
 			em.getTransaction().commit();

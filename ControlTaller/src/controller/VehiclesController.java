@@ -189,11 +189,21 @@ public class VehiclesController {
 		
 		refrescarTaula();
 	}
+	/**
+	 * Metode que si esl filtres estan activats permet fer servir la consulta de filtres
+	 * per Model,Marca, id, IdentificadorVehicle
+	 */
 	@FXML
-	public void filtresVehicleModel() {
+	public void filtresVehicle() {
 		if(filtresActivats) {
 			if(vehicleSeleccionat==null) {
-				GestorVistes.emplenarTableView(vehicleServeiImpl.llistarVehiclesModel(txtVehcileModel.getText()), twVehicles);
+				log.info("MODEL: " + txtVehcileModel.getText() + " MARCA: " + txtVehcileMarca.getText() + " ID: " + txtVehicleId.getText() + " IDENTIFICADOR: " + 	txtVehicleIdentificador.getText());
+				if(txtVehicleId.getText()==null || txtVehicleId.getText().equals("")) {
+					GestorVistes.emplenarTableView(vehicleServeiImpl.llistarVehiclesModelAndMarcaAndIdentificador(txtVehcileModel.getText(), txtVehcileMarca.getText(), txtVehicleIdentificador.getText()), twVehicles);
+				}else {
+					GestorVistes.emplenarTableView(vehicleServeiImpl.llistarVehiclesModelAndMarcaAndId(txtVehcileModel.getText(), txtVehcileMarca.getText(), Integer.parseInt(txtVehicleId.getText()), txtVehicleIdentificador.getText()), twVehicles);
+				}
+				
 			}
 		}
 
