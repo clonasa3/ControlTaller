@@ -46,11 +46,20 @@ public class VehicleDaoImpl implements VehicleDao {
 	
 	@Override
 	public List<Vehicle> llistarVechilesPersona(Persona persona){
-		Vehicle v = new Vehicle();
+		List<Vehicle> llistaVehicles = new ArrayList<>();
 		//String consulta = "SELECT vehicle from Vehcile  WHERE vechile.personaVehiculo.id equals :idPersonaPassada";
+		try {
+			em = emf.createEntityManager();
+			em.getTransaction().begin();
+			String consulta = "SELECT vehicle from Vehicle vehicle  WHERE vehicle.personaVehiculo.id = :idPersonaPassada";
+			Query query = em.createQuery(consulta);
+			query.setParameter("idPersonaPassada", persona.getIdPersona());
+			llistaVehicles=query.getResultList();
+		}catch (Exception e) {
+			log.error(e.getMessage());
+		}
 		
-		
-		return null;
+		return llistaVehicles;
 	}
 
 	@Override

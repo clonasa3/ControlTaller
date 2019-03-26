@@ -8,6 +8,7 @@ import entity.Vehicle;
 public interface VehicleService {
 	
 	public List<Vehicle> llistarVehicles();
+	public List<Vehicle> llistarVehiclesPersona(Persona persona);
 	public Vehicle selectVehicle(int id);
 	public List<Vehicle> llistarVehiclesModelAndMarcaAndId(String model, String marca, int id, String identificadorVehicle);
 	public List<Vehicle> llistarVehiclesModelAndMarcaAndIdentificador(String model, String marca, String identificadorVehicle);

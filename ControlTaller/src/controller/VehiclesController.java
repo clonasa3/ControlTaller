@@ -172,7 +172,7 @@ public class VehiclesController {
 	public void refrescarTaula() {
 		if(personaPassada != null)
 		{
-			//Falta llistar els vehicles del client que hi ha passat a la vista
+			GestorVistes.emplenarTableView(vehicleServeiImpl.llistarVehiclesPersona(personaPassada),twVehicles);
 		}
 		else {
 			GestorVistes.emplenarTableView(vehicleServeiImpl.llistarVehicles(),twVehicles);

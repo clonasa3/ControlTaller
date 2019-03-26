@@ -98,7 +98,7 @@ public class Vehicle implements Serializable {
 	 * @param marcaVehicle the marcaVehicle to set
 	 */
 	public void setMarcaVehicle(String marcaVehicle) {
-		marcaVehicle = marcaVehicle;
+		this.marcaVehicle = marcaVehicle;
 	}
 
 	/**

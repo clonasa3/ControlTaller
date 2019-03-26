@@ -19,6 +19,11 @@ public class VehicleServiceImpl implements VehicleService{
 
 		return vDaoImpl.llistarVehicles();
 	}
+	
+	@Override
+	public List<Vehicle> llistarVehiclesPersona(Persona persona){
+		return vDaoImpl.llistarVechilesPersona(persona);
+	}
 
 	@Override
 	public Vehicle selectVehicle(int id) {
