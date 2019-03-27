@@ -53,12 +53,23 @@ public class GestorVistes {
 	//Metode per canviar les vistes
 	public void canviarVista(javafx.event.ActionEvent event, String vista) {
 		Parent parent;
+		
 		try {
 			parent = FXMLLoader.load(getClass().getResource("/vistes/"+vista+".fxml"));
 			Scene scene = new Scene(parent);
 	        Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-	        appStage.setScene(scene);
+	        log.info("VISTA: " + vista);
+	        appStage.setScene(scene);	        
 	        appStage.show();
+	        if(vista != "IniciTaller") {
+	        	appStage.setX(0);
+	        	appStage.setY(0);
+	        	appStage.setMaximized(true);
+	        }else {
+	        	appStage.setWidth(600.00D);
+	        	appStage.setHeight(250.00D);
+	        }
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -88,12 +99,12 @@ public class GestorVistes {
 				//Carreguem taller amb un vehicle passat.
 				TallerController tallerController = loader.getController();
 				tallerController.setVehiclePassat((Vehicle)objectePassat);
-			}
-			
+			}			
 	        Stage appStage = new Stage();
 			Scene scene = new Scene(parent);
 	        appStage.setScene(scene);
 	        appStage.show();
+	        appStage.setMaximized(true);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
