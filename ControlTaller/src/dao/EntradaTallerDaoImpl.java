@@ -1,5 +1,6 @@
 package dao;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,6 +63,14 @@ public class EntradaTallerDaoImpl implements EntradaTallerDao{
 		}
 
 		return llistaEntradaTaller;
+	}
+	
+	public List<EntradaTaller> llistarEntradesSegonsData(LocalDate data1, LocalDate data2){
+		List<EntradaTaller> entradesTaller = new ArrayList<>();
+		String consulta = "SELECT entrada FROM EntradesTaller entrada WHERE "
+		
+		return null;
+		
 	}
 	/*CONSULTA JPQL String consulta = "SELECT entrada FROM EntradaTaller entrada WHERE entrada.vehicleTaller = :vehicleTaller";*/
 

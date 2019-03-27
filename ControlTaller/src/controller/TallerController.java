@@ -241,6 +241,8 @@ public class TallerController {
 		colActuacioAveria.setCellValueFactory(new PropertyValueFactory<EntradaTaller, String>("actuacioEntradaTaller"));
 		
 		twEntradesTaller.getColumns().addAll(colIdEntrada,colIdVehicle,colObseravioAveria,colActuacioAveria);
+		
+		GestorVistes.emplenarTableView(serveiTaller.llistarEntradesTaller(), twEntradesTaller);
 	}
 
 }
