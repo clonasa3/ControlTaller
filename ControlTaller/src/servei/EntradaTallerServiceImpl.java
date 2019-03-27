@@ -1,5 +1,6 @@
 package servei;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import dao.EntradaTallerDaoImpl;
@@ -47,6 +48,10 @@ public class EntradaTallerServiceImpl implements EntradaTallerService {
 	@Override
 	public void actualitzarEntrada(EntradaTaller entrada) {
 		etdi.updateEntradaTaller(entrada);
+	}
+	
+	public List<EntradaTaller> llistarEntradesSegonsData(LocalDate data1, LocalDate data2){
+		return etdi.llistarEntradesSegonsData(data1, data2);
 	}
 
 }

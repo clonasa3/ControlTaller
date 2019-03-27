@@ -72,11 +72,12 @@
                         <Label text="Sortida" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                         <DatePicker fx:id="dpEntrada" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <DatePicker fx:id="dpSortida" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                        <ToggleButton fx:id="tgl_buscar_taller" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="Buscar" GridPane.halignment="CENTER" GridPane.rowIndex="8">
+                        <ToggleButton fx:id="tgl_buscar_taller" mnemonicParsing="false" onAction="#activarFiltres" prefHeight="25.0" prefWidth="90.0" text="Buscar" GridPane.halignment="CENTER" GridPane.rowIndex="8">
                            <graphic>
                               <Glyph fontFamily="FontAwesome" fontSize="10" icon="SEARCH" />
                            </graphic>
                         </ToggleButton>
+                        <Button fx:id="btnDates" mnemonicParsing="false" onAction="#filtrarDates" text="Buscar Dates" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
                      </children>
                   </GridPane>
                </children>

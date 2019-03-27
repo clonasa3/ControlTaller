@@ -67,9 +67,24 @@ public class EntradaTallerDaoImpl implements EntradaTallerDao{
 	
 	public List<EntradaTaller> llistarEntradesSegonsData(LocalDate data1, LocalDate data2){
 		List<EntradaTaller> entradesTaller = new ArrayList<>();
-		String consulta = "SELECT entrada FROM EntradesTaller entrada WHERE "
+		String consulta = "SELECT entrada FROM EntradaTaller entrada WHERE entrada.entrada >= :data1 AND  entrada.sortida <= :data2";
 		
-		return null;
+		try {
+			em = emf.createEntityManager();
+			em.getTransaction().begin();
+			
+			Query query = em.createQuery(consulta);
+			query.setParameter("data1", data1);
+			query.setParameter("data2", data2);
+			entradesTaller=query.getResultList();
+			em.getTransaction().commit();
+		} catch (Exception e) {
+			log.error(e.getMessage());
+		}finally {
+			em.close();
+		}
+		
+		return entradesTaller;
 		
 	}
 	/*CONSULTA JPQL String consulta = "SELECT entrada FROM EntradaTaller entrada WHERE entrada.vehicleTaller = :vehicleTaller";*/

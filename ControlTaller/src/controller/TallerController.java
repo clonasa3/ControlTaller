@@ -5,6 +5,8 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDate;
+
 import javax.imageio.ImageIO;
 
 import org.slf4j.Logger;
@@ -57,17 +59,23 @@ public class TallerController {
 	@FXML
 	private Button btnEliminarImatge;
 	@FXML
+	private Button btnDates;
+	@FXML
 	private DatePicker dpEntrada;
 	@FXML
 	private DatePicker dpSortida;
 	@FXML
 	private ImageView imgIncidenciaImatge;
 	
+	private boolean filtresActivats = false;
+	
 	@FXML
 	TableView<EntradaTaller> twEntradesTaller;
 	
 	TableColumn<EntradaTaller, String> colIdEntrada;
 	TableColumn<EntradaTaller, String> colIdVehicle;
+	TableColumn<EntradaTaller, LocalDate> colEntrada;
+	TableColumn<EntradaTaller, LocalDate> colSortida;
 	TableColumn<EntradaTaller, String> colObseravioAveria;
 	TableColumn<EntradaTaller, String> colActuacioAveria;
 	
@@ -225,6 +233,25 @@ public class TallerController {
 			log.error("No hi ha imatge assignada a aquesta entrada");
 		}
 	}
+	@FXML
+	public void filtrarDates() {
+
+		GestorVistes.emplenarTableView(serveiTaller.llistarEntradesSegonsData(dpEntrada.getValue(), dpSortida.getValue()), twEntradesTaller);
+		
+		
+	}
+	
+	@FXML
+	public void activarFiltres() {
+		if(filtresActivats) {
+			btnDates.setDisable(true);			
+			filtresActivats=false;
+		}else {
+			btnDates.setDisable(false);
+			filtresActivats=true;
+			
+		}
+	}
 	
 	//CARREGAR INCIDENCIES DE UN VEHCILE AL TABLEVIEW
 	
@@ -232,17 +259,22 @@ public class TallerController {
 	public void initialize() {
 		colIdEntrada = new TableColumn<>("ID");
 		colIdVehicle = new TableColumn<>("VEHICLE");
+		colEntrada = new TableColumn<>("Entrada");
+		colSortida = new TableColumn<>("Sortida");
 		colObseravioAveria = new TableColumn<>("INCIDÈNCIA");
 		colActuacioAveria = new TableColumn<>("ACTUACIONS");
 		
 		colIdEntrada.setCellValueFactory(new PropertyValueFactory<>("id"));
 		colIdVehicle.setCellValueFactory(new PropertyValueFactory<>(""));
+		colEntrada.setCellValueFactory(new PropertyValueFactory<>("entrada"));
+		colSortida.setCellValueFactory(new PropertyValueFactory<>("sortida"));
 		colObseravioAveria.setCellValueFactory(new PropertyValueFactory<EntradaTaller, String>("observacioEntradaTaller"));
 		colActuacioAveria.setCellValueFactory(new PropertyValueFactory<EntradaTaller, String>("actuacioEntradaTaller"));
 		
-		twEntradesTaller.getColumns().addAll(colIdEntrada,colIdVehicle,colObseravioAveria,colActuacioAveria);
+		twEntradesTaller.getColumns().addAll(colIdEntrada,colIdVehicle,colEntrada,colSortida,colObseravioAveria,colActuacioAveria);
 		
 		GestorVistes.emplenarTableView(serveiTaller.llistarEntradesTaller(), twEntradesTaller);
+		btnDates.setDisable(true);
 	}
 
 }
