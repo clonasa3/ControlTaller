@@ -17,6 +17,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import servei.PersonaServiceImpl;
 import servei.VehicleServiceImpl;
 
@@ -86,9 +87,15 @@ public class VehiclesController {
 		 * està tot fet al gestor de vistes
 		 */
 		gv.canviarVista(event, Vistes.CRUDTaller.toString(), vehicleSeleccionat);
+		Button botoClicat = (Button)event.getTarget();
+		Stage stage = (Stage)botoClicat.getScene().getWindow();
+		stage.close();
 	}
 	public void tornarHome(javafx.event.ActionEvent event) {
 		gv.canviarVista(event, Vistes.IniciTaller.toString());
+		Button botoClicat = (Button) event.getTarget();
+		Stage stage = (Stage) botoClicat.getScene().getWindow();
+		stage.close();
 	}
 	
 	public Persona getPersonaPassada() {

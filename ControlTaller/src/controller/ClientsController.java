@@ -1,14 +1,11 @@
 package controller;
 
 
-import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import controller.GestorVistes.Vistes;
 import entity.Persona;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -17,6 +14,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import servei.PersonaServiceImpl;
 
 public class ClientsController {
@@ -128,6 +126,9 @@ public class ClientsController {
 	public void obrirVistaVehicles(javafx.event.ActionEvent event) {
 		if(personaSeleccionada!=null) {
 			gv.canviarVista(event, Vistes.CRUDVehicles.toString(), personaSeleccionada);
+			Button botoClicat = (Button)event.getTarget();
+			Stage stage = (Stage)botoClicat.getScene().getWindow();
+			stage.close();
 		}else {
 			gv.canviarVista(event, Vistes.CRUDVehicles.toString());	
 		}
