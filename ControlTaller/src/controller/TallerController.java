@@ -265,7 +265,7 @@ public class TallerController {
 		colActuacioAveria = new TableColumn<>("ACTUACIONS");
 		
 		colIdEntrada.setCellValueFactory(new PropertyValueFactory<>("id"));
-		colIdVehicle.setCellValueFactory(new PropertyValueFactory<>(""));
+		colIdVehicle.setCellValueFactory(new PropertyValueFactory<>("vehicleTaller"));
 		colEntrada.setCellValueFactory(new PropertyValueFactory<>("entrada"));
 		colSortida.setCellValueFactory(new PropertyValueFactory<>("sortida"));
 		colObseravioAveria.setCellValueFactory(new PropertyValueFactory<EntradaTaller, String>("observacioEntradaTaller"));
