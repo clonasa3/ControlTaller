@@ -8,7 +8,11 @@ import java.io.IOException;
 import java.time.LocalDate;
 
 import javax.imageio.ImageIO;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
+import org.hibernate.action.internal.EntityIdentityInsertAction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -265,7 +269,12 @@ public class TallerController {
 		colActuacioAveria = new TableColumn<>("ACTUACIONS");
 		
 		colIdEntrada.setCellValueFactory(new PropertyValueFactory<>("id"));
-		colIdVehicle.setCellValueFactory(new PropertyValueFactory<>("vehicleTaller"));
+
+		//In propertyValueFactory you can specify a getter (don't put full name with get only the word before get)
+		//to retrive the value we want to show.
+		colIdVehicle.setCellValueFactory(new PropertyValueFactory<>("idVehicle"));
+
+
 		colEntrada.setCellValueFactory(new PropertyValueFactory<>("entrada"));
 		colSortida.setCellValueFactory(new PropertyValueFactory<>("sortida"));
 		colObseravioAveria.setCellValueFactory(new PropertyValueFactory<EntradaTaller, String>("observacioEntradaTaller"));

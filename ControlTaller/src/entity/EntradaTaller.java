@@ -164,6 +164,14 @@ public class EntradaTaller implements Serializable{
 		this.vehicleTaller = vehicleTaller;
 	}
 
+	/**
+	 * This method returns the ID of a vehicle, we use it in TallerController in initalize for fill the column
+	 * where the id of the vehicle must appear.
+	 * @return the id of vehicle
+	 */
+	public int getIdVehicle() {
+		return vehicleTaller.getCodiVehicle();
+	}
 
 
 	/* (non-Javadoc)
