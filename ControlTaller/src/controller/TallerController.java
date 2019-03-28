@@ -78,6 +78,7 @@ public class TallerController {
 	
 	TableColumn<EntradaTaller, String> colIdEntrada;
 	TableColumn<EntradaTaller, String> colIdVehicle;
+	TableColumn<EntradaTaller, String> colNomClient;
 	TableColumn<EntradaTaller, LocalDate> colEntrada;
 	TableColumn<EntradaTaller, LocalDate> colSortida;
 	TableColumn<EntradaTaller, String> colObseravioAveria;
@@ -263,6 +264,7 @@ public class TallerController {
 	public void initialize() {
 		colIdEntrada = new TableColumn<>("ID");
 		colIdVehicle = new TableColumn<>("VEHICLE");
+		colNomClient = new TableColumn<EntradaTaller, String>("Nom Client");
 		colEntrada = new TableColumn<>("Entrada");
 		colSortida = new TableColumn<>("Sortida");
 		colObseravioAveria = new TableColumn<>("INCIDÈNCIA");
@@ -273,6 +275,7 @@ public class TallerController {
 		//In propertyValueFactory you can specify a getter (don't put full name with get only the word before get)
 		//to retrive the value we want to show.
 		colIdVehicle.setCellValueFactory(new PropertyValueFactory<>("idVehicle"));
+		colNomClient.setCellValueFactory(new PropertyValueFactory<>("nomClient"));
 
 
 		colEntrada.setCellValueFactory(new PropertyValueFactory<>("entrada"));
@@ -280,7 +283,7 @@ public class TallerController {
 		colObseravioAveria.setCellValueFactory(new PropertyValueFactory<EntradaTaller, String>("observacioEntradaTaller"));
 		colActuacioAveria.setCellValueFactory(new PropertyValueFactory<EntradaTaller, String>("actuacioEntradaTaller"));
 		
-		twEntradesTaller.getColumns().addAll(colIdEntrada,colIdVehicle,colEntrada,colSortida,colObseravioAveria,colActuacioAveria);
+		twEntradesTaller.getColumns().addAll(colIdEntrada,colIdVehicle,colNomClient,colEntrada,colSortida,colObseravioAveria,colActuacioAveria);
 		
 		GestorVistes.emplenarTableView(serveiTaller.llistarEntradesTaller(), twEntradesTaller);
 		btnDates.setDisable(true);

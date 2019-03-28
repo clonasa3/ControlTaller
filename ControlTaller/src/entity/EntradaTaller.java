@@ -36,7 +36,7 @@ public class EntradaTaller implements Serializable{
 	@Column(name="imatge_entrada_taller", columnDefinition="mediumblob")
 	private byte[] imatgeIncidencia;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="vehicle_taller_id")
 	private Vehicle vehicleTaller;
 	
@@ -171,6 +171,10 @@ public class EntradaTaller implements Serializable{
 	 */
 	public int getIdVehicle() {
 		return vehicleTaller.getCodiVehicle();
+	}
+	
+	public String getNomClient() {
+		return vehicleTaller.getPersonaVehichlo().getNombre();
 	}
 
 
