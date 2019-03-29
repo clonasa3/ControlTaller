@@ -28,14 +28,26 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <TextField fx:id="txtVehicleId" onKeyReleased="#filtresVehicle" GridPane.columnIndex="1" />
-                        <TextField fx:id="txtVehcileMarca" onKeyReleased="#filtresVehicle" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField fx:id="txtVehicleClientId" GridPane.columnIndex="3" />
-                        <TextField fx:id="txtVehcileModel" onKeyReleased="#filtresVehicle" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                        <Label text="Id Vehicle" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                     
+                     	<Label text="Id Vehicle" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <TextField fx:id="txtVehicleId" disable="true" onKeyReleased="#filtresVehicle" GridPane.columnIndex="1" />
+                        
                         <Label text="Id Client" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                        <Label text="Model" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <TextField fx:id="txtVehicleClientId" GridPane.columnIndex="3" />
+                        
                         <Label text="Marca" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <TextField fx:id="txtVehcileMarca" onKeyReleased="#filtresVehicle" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        
+                        <Label text="Model" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <TextField fx:id="txtVehcileModel" onKeyReleased="#filtresVehicle" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        
+                        <Label fx:id="lblVehicleIdentificador" text="Identificador" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                        <TextField fx:id="txtVehicleIdentificador" onKeyReleased="#filtresVehicle" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                       
+                       	<Label text="Observacions" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                        <TextArea fx:id="txtVehicleObservacions" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3" />
+                        
+                        
                         <Button fx:id="btnGuardarVehicle" mnemonicParsing="false" onAction="#guardarVehicle" prefHeight="25.0" prefWidth="94.0" text="Nou" GridPane.halignment="CENTER" GridPane.rowIndex="4">
                            <graphic>
                               <Glyph fontFamily="FontAwesome" fontSize="10" icon="PLUS" />
@@ -56,20 +68,20 @@
                               <Glyph fontFamily="FontAwesome" fontSize="10" icon="COGS" />
                            </graphic>
                         </Button>
-                        <Button fx:id="btnHome" mnemonicParsing="false" onAction="#tornarHome" prefHeight="25.0" prefWidth="95.0" text="Sortir" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5">
-                           <graphic>
-                              <Glyph fontFamily="FontAwesome" fontSize="10" icon="HOME" />
-                           </graphic>
-                        </Button>
-                        <TextArea fx:id="txtVehicleObservacions" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3" />
-                        <Label text="Observacions" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-                        <Label fx:id="lblVehicleIdentificador" text="Identificador" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                        <TextField fx:id="txtVehicleIdentificador" onKeyReleased="#filtresVehicle" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        
                         <ToggleButton fx:id="tglBuscarVehiculos" mnemonicParsing="false" onAction="#activarFiltres" prefHeight="25.0" prefWidth="87.0" text="Buscar" GridPane.halignment="CENTER" GridPane.rowIndex="5">
                            <graphic>
                               <Glyph fontFamily="FontAwesome" fontSize="10" icon="SEARCH" />
                            </graphic>
                         </ToggleButton>
+                        
+                        <Button fx:id="btnHome" mnemonicParsing="false" onAction="#tornarHome" prefHeight="25.0" prefWidth="95.0" text="Sortir" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+                           <graphic>
+                              <Glyph fontFamily="FontAwesome" fontSize="10" icon="HOME" />
+                           </graphic>
+                        </Button>
+                        
+                        
                      </children>
                   </GridPane>
                </children>

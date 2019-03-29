@@ -32,10 +32,29 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
+                     
+                     	<Label text="Id Incidència" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                         <TextField fx:id="txtIncidenciaId" GridPane.columnIndex="1" />
-                        <TextField fx:id="txtIdVehicle" GridPane.columnIndex="3" />
-                        <Label text="Id Incidència" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        
                         <Label text="Id Vehicle" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <TextField fx:id="txtIdVehicle" GridPane.columnIndex="3" />
+                        
+                        <Label text="Entrada" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                        <DatePicker fx:id="dpEntrada" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        
+                        <Label text="Sortida" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                        <DatePicker fx:id="dpSortida" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        
+                        <Label text="Avería" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                        <TextArea fx:id="txtIncidenciaAveria" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="2" />
+                        
+                        <Label text="Actuacions" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                        <TextArea fx:id="txtIncidenciaActuacio" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3" />
+                       
+                       	<Label text="Imatge" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                       	<Button fx:id="btnAfegirImatge" alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#cercarImatge" text="Afegir Img." textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                       	<Button fx:id="btnEliminarImatge" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Eliminar Img." GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                        
                         <Button fx:id="btnIncidenciaNou" mnemonicParsing="false" onMouseClicked="#guardarIncidencia" prefHeight="25.0" prefWidth="94.0" text="Nou" GridPane.halignment="CENTER" GridPane.rowIndex="7">
                            <graphic>
                               <Glyph fontFamily="FontAwesome" fontSize="10" icon="PLUS" />
@@ -56,22 +75,21 @@
                               <Glyph fontFamily="FontAwesome" fontSize="10" icon="HOME" />
                            </graphic>
                         </Button>
-                        <TextArea fx:id="txtIncidenciaActuacio" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3" />
-                        <Label text="Actuacions" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-                        <TextArea fx:id="txtIncidenciaAveria" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="2" />
-                        <Label text="Avería" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                        <Label text="Imatge" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                        
+                        
+                        
+                        
+                        
                         <Pane prefHeight="88.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="5" GridPane.rowSpan="2">
                            <children>
                               <ImageView fx:id="imgIncidenciaImatge" fitHeight="150.0" fitWidth="267.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true" />
                            </children>
                         </Pane>
-                        <Button fx:id="btnAfegirImatge" alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#cercarImatge" text="Afegir Img." textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-                        <Button fx:id="btnEliminarImatge" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Eliminar Img." GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-                        <Label text="Entrada" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                        <Label text="Sortida" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                        <DatePicker fx:id="dpEntrada" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <DatePicker fx:id="dpSortida" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        
+                        
+                       
+                        
+                        
                         <ToggleButton fx:id="tgl_buscar_taller" mnemonicParsing="false" onAction="#activarFiltres" prefHeight="25.0" prefWidth="90.0" text="Buscar" GridPane.halignment="CENTER" GridPane.rowIndex="8">
                            <graphic>
                               <Glyph fontFamily="FontAwesome" fontSize="10" icon="SEARCH" />

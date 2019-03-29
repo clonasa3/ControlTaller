@@ -64,16 +64,19 @@
                               <Glyph fontFamily="FontAwesome" fontSize="10" icon="BICYCLE" />
                            </graphic>
                         </Button>
+                        
+                       <ToggleButton fx:id="tglBuscarClientes" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#activarBuscar" prefHeight="25.0" prefWidth="97.0" text="Buscar" textAlignment="RIGHT" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                            <graphic>
+                              <Glyph fontFamily="FontAwesome" fontSize="10" icon="SEARCH" />
+                           </graphic>
+                       </ToggleButton>
+                       
                         <Button fx:id="btnHome" mnemonicParsing="false" onAction="#tornarHome" prefHeight="25.0" prefWidth="95.0" text="Sortir" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
                            <graphic>
                               <Glyph fontFamily="FontAwesome" fontSize="10" icon="HOME" />
                            </graphic>
                         </Button>
-                        <ToggleButton fx:id="tglBuscarClientes" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#activarBuscar" prefHeight="25.0" prefWidth="97.0" text="Buscar" textAlignment="RIGHT" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
-                            <graphic>
-                              <Glyph fontFamily="FontAwesome" fontSize="10" icon="SEARCH" />
-                           </graphic>
-                       </ToggleButton>
+
                         
 
                      </children>
