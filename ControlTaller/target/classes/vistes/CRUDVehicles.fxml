@@ -33,7 +33,7 @@
                         <TextField fx:id="txtVehicleId" disable="true" onKeyReleased="#filtresVehicle" GridPane.columnIndex="1" />
                         
                         <Label text="Id Client" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                        <TextField fx:id="txtVehicleClientId" GridPane.columnIndex="3" />
+                        <TextField disable="true" fx:id="txtVehicleClientId" GridPane.columnIndex="3" />
                         
                         <Label text="Marca" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                         <TextField fx:id="txtVehcileMarca" onKeyReleased="#filtresVehicle" GridPane.columnIndex="1" GridPane.rowIndex="1" />

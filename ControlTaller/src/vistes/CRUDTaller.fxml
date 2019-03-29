@@ -34,10 +34,10 @@
                      <children>
                      
                      	<Label text="Id Incidència" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                        <TextField fx:id="txtIncidenciaId" GridPane.columnIndex="1" />
+                        <TextField fx:id="txtIncidenciaId" disable="true" GridPane.columnIndex="1" />
                         
                         <Label text="Id Vehicle" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                        <TextField fx:id="txtIdVehicle" GridPane.columnIndex="3" />
+                        <TextField fx:id="txtIdVehicle" disable="true" GridPane.columnIndex="3" />
                         
                         <Label text="Entrada" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                         <DatePicker fx:id="dpEntrada" GridPane.columnIndex="1" GridPane.rowIndex="1" />

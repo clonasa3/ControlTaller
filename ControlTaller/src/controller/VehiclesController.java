@@ -221,8 +221,12 @@ public class VehiclesController {
 	@FXML
 	public void activarFiltres() {
 		if(filtresActivats) {
+			txtVehicleClientId.setDisable(true);
+			txtVehicleId.setDisable(true);
 			filtresActivats = false;
 		}else {
+			txtVehicleClientId.setDisable(false);
+			txtVehicleId.setDisable(false);
 			filtresActivats=true;
 		}
 	}
