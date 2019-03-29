@@ -91,8 +91,8 @@ public class ClientsController {
 	//Guardar persona a la BD
 	@FXML
 	public void guardarPersona() {
-		Persona p = new Persona(txtNomClient.getText(), txtDniClient.getText(), txtDireccioClient.getText(),
-				txtPoblacioClient.getText(),txtTelefonClient.getText(), txtMobilClient.getText(),txtEmailClient.getText());
+		Persona p = new Persona(txtNomClient.getText().toUpperCase(), txtDniClient.getText().toUpperCase(), txtDireccioClient.getText().toUpperCase(),
+				txtPoblacioClient.getText().toUpperCase(),txtTelefonClient.getText().toUpperCase(), txtMobilClient.getText().toUpperCase(),txtEmailClient.getText().toUpperCase());
 		log.error("Nova Persona: " + p.toString());
 		psi.guardarPersona(p);
 		resetCamps();
@@ -102,13 +102,13 @@ public class ClientsController {
 	//Modificar Persona
 	@FXML
 	public void modificarPersona() {
-		personaSeleccionada.setNombre(txtNomClient.getText());
-		personaSeleccionada.setDni(txtDniClient.getText());
-		personaSeleccionada.setEmail(txtEmailClient.getText());
-		personaSeleccionada.setDireccio(txtDireccioClient.getText());
-		personaSeleccionada.setPoblacio(txtPoblacioClient.getText());
-		personaSeleccionada.setTlfFix(txtTelefonClient.getText());
-		personaSeleccionada.setTlfMobil(txtMobilClient.getText());
+		personaSeleccionada.setNombre(txtNomClient.getText().toUpperCase());
+		personaSeleccionada.setDni(txtDniClient.getText().toUpperCase());
+		personaSeleccionada.setEmail(txtEmailClient.getText().toUpperCase());
+		personaSeleccionada.setDireccio(txtDireccioClient.getText().toUpperCase());
+		personaSeleccionada.setPoblacio(txtPoblacioClient.getText().toUpperCase());
+		personaSeleccionada.setTlfFix(txtTelefonClient.getText().toUpperCase());
+		personaSeleccionada.setTlfMobil(txtMobilClient.getText().toUpperCase());
 		psi.actualitzarPersona(personaSeleccionada);
 		resetCamps();
 		GestorVistes.emplenarTableView(psi.cercarTotesLesPersones(), twClients);
@@ -181,7 +181,7 @@ public class ClientsController {
 	public void filtrePersonesTWNomDNI(){
 		if(busquedaActiva) {
 			if(personaSeleccionada==null) {
-				GestorVistes.emplenarTableView(psi.cercarPersonaDniNom(txtDniClient.getText(), txtNomClient.getText()),twClients);
+				GestorVistes.emplenarTableView(psi.cercarPersonaDniNom(txtDniClient.getText().toUpperCase(), txtNomClient.getText().toUpperCase()),twClients);
 			}
 		}
 

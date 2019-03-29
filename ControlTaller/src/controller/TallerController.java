@@ -120,8 +120,8 @@ public class TallerController {
 		entradaTaller.setVehicleTaller(vehiclePassat);
 		entradaTaller.setEntrada(dpEntrada.getValue());
 		entradaTaller.setSortida(dpSortida.getValue());
-		entradaTaller.setActuacioEntradaTaller(txtIncidenciaActuacio.getText());
-		entradaTaller.setObservacioEntradaTaller(txtIncidenciaAveria.getText());
+		entradaTaller.setActuacioEntradaTaller(txtIncidenciaActuacio.getText().toUpperCase());
+		entradaTaller.setObservacioEntradaTaller(txtIncidenciaAveria.getText().toUpperCase());
 		if(imgIncidenciaImatge.getImage()!=null) {
 			entradaTaller.setImatgeIncidencia(convertirImatgeByetArray(imgIncidenciaImatge.getImage()));			
 		}
@@ -153,8 +153,8 @@ public class TallerController {
 		//Modifiquem els valors del item carregat que és el selccionat
 		entradaSeleccionada.setEntrada(dpEntrada.getValue());
 		entradaSeleccionada.setSortida(dpSortida.getValue());
-		entradaSeleccionada.setObservacioEntradaTaller(txtIncidenciaAveria.getText());
-		entradaSeleccionada.setActuacioEntradaTaller(txtIncidenciaActuacio.getText());
+		entradaSeleccionada.setObservacioEntradaTaller(txtIncidenciaAveria.getText().toUpperCase());
+		entradaSeleccionada.setActuacioEntradaTaller(txtIncidenciaActuacio.getText().toUpperCase());
 		if(imgIncidenciaImatge.getImage()!=null) {
 			entradaSeleccionada.setImatgeIncidencia(convertirImatgeByetArray(imgIncidenciaImatge.getImage()));			
 		}
@@ -227,7 +227,9 @@ public class TallerController {
 		dpSortida.setValue(entrada.getSortida());
 		txtIncidenciaAveria.setText(entrada.getObservacioEntradaTaller());
 		txtIncidenciaActuacio.setText(entrada.getActuacioEntradaTaller());
-
+		if(entrada.getImatgeIncidencia()==null || entrada.getImatgeIncidencia().equals("")) {
+			imgIncidenciaImatge.setImage(null);
+		}
 		//CARREGUEM LA IMATGE DEL BYTE ARRAY A IMAGE I D'AQUÍ AL IMAGE VIEW
 		try {
 			BufferedImage bufferImage = ImageIO.read(new ByteArrayInputStream(entrada.getImatgeIncidencia()));

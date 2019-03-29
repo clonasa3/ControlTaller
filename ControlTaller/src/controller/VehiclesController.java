@@ -124,13 +124,13 @@ public class VehiclesController {
 	 */
 	public void guardarVehicle() {
 		Vehicle vehicleEntrat = new Vehicle();
-		vehicleEntrat.setMarcaVehicle(txtVehcileMarca.getText());
-		vehicleEntrat.setNomVehicle(txtVehcileModel.getText());
-		vehicleEntrat.setIdentificadorVehicle(txtVehicleIdentificador.getText());
-		vehicleEntrat.setObsrevacionsVehicle(txtVehicleObservacions.getText());
+		vehicleEntrat.setMarcaVehicle(txtVehcileMarca.getText().toUpperCase());
+		vehicleEntrat.setNomVehicle(txtVehcileModel.getText().toUpperCase());
+		vehicleEntrat.setIdentificadorVehicle(txtVehicleIdentificador.getText().toUpperCase());
+		vehicleEntrat.setObsrevacionsVehicle(txtVehicleObservacions.getText().toUpperCase());
 		if(txtVehicleClientId!=null) {
 			log.info("LA PERSONA NO ES NULA");
-			vehicleEntrat.setPersonaVehichlo(personaServiceImpl.cercarUnaPersonaId(Integer.parseInt(txtVehicleClientId.getText())));
+			vehicleEntrat.setPersonaVehichlo(personaServiceImpl.cercarUnaPersonaId(Integer.parseInt(txtVehicleClientId.getText().toUpperCase())));
 			log.info("PERSONA PROPIETARIA DEL VEHICLE: " + personaServiceImpl.cercarUnaPersonaId(Integer.parseInt(txtVehicleClientId.getText())));
 		}
 		vehicleServeiImpl.guardarVehicle(vehicleEntrat);
@@ -147,11 +147,11 @@ public class VehiclesController {
 	}
 	
 	public void modificarVehicle() {
-		Vehicle vModificar = vehicleServeiImpl.selectVehicle(Integer.parseInt(txtVehicleId.getText()));
-		vModificar.setMarcaVehicle(txtVehcileMarca.getText());
-		vModificar.setNomVehicle(txtVehcileModel.getText());
-		vModificar.setIdentificadorVehicle(txtVehicleIdentificador.getText());
-		vModificar.setObsrevacionsVehicle(txtVehicleObservacions.getText());
+		Vehicle vModificar = vehicleServeiImpl.selectVehicle(Integer.parseInt(txtVehicleId.getText().toUpperCase()));
+		vModificar.setMarcaVehicle(txtVehcileMarca.getText().toUpperCase());
+		vModificar.setNomVehicle(txtVehcileModel.getText().toUpperCase());
+		vModificar.setIdentificadorVehicle(txtVehicleIdentificador.getText().toUpperCase());
+		vModificar.setObsrevacionsVehicle(txtVehicleObservacions.getText().toUpperCase());
 		vehicleServeiImpl.updateVehicle(vModificar);
 		refrescarCamps();
 	}
@@ -206,9 +206,9 @@ public class VehiclesController {
 			if(vehicleSeleccionat==null) {
 				log.info("MODEL: " + txtVehcileModel.getText() + " MARCA: " + txtVehcileMarca.getText() + " ID: " + txtVehicleId.getText() + " IDENTIFICADOR: " + 	txtVehicleIdentificador.getText());
 				if(txtVehicleId.getText()==null || txtVehicleId.getText().equals("")) {
-					GestorVistes.emplenarTableView(vehicleServeiImpl.llistarVehiclesModelAndMarcaAndIdentificador(txtVehcileModel.getText(), txtVehcileMarca.getText(), txtVehicleIdentificador.getText()), twVehicles);
+					GestorVistes.emplenarTableView(vehicleServeiImpl.llistarVehiclesModelAndMarcaAndIdentificador(txtVehcileModel.getText().toUpperCase(), txtVehcileMarca.getText().toUpperCase(), txtVehicleIdentificador.getText().toUpperCase()), twVehicles);
 				}else {
-					GestorVistes.emplenarTableView(vehicleServeiImpl.llistarVehiclesModelAndMarcaAndId(txtVehcileModel.getText(), txtVehcileMarca.getText(), Integer.parseInt(txtVehicleId.getText()), txtVehicleIdentificador.getText()), twVehicles);
+					GestorVistes.emplenarTableView(vehicleServeiImpl.llistarVehiclesModelAndMarcaAndId(txtVehcileModel.getText().toUpperCase(), txtVehcileMarca.getText().toUpperCase(), Integer.parseInt(txtVehicleId.getText().toUpperCase()), txtVehicleIdentificador.getText().toUpperCase()), twVehicles);
 				}
 				
 			}
