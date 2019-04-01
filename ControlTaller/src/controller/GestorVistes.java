@@ -1,5 +1,7 @@
 package controller;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.io.IOException;
 import java.util.List;
 
@@ -20,6 +22,10 @@ import javafx.stage.Stage;
 public class GestorVistes {
 	//LOGGER
 	Logger log = LoggerFactory.getLogger(this.getClass());
+	
+	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	int screenHeight = screenSize.height;
+	int screenWidth = screenSize.width;
 	
 	private static GestorVistes gv=null;
 	
@@ -64,7 +70,8 @@ public class GestorVistes {
 	        if(vista != "IniciTaller") {
 	        	appStage.setX(0);
 	        	appStage.setY(0);
-	        	appStage.setMaximized(true);
+	        	appStage.setWidth(screenWidth);
+	        	appStage.setHeight(screenHeight);
 	        }else {
 	        	appStage.setWidth(600.00D);
 	        	appStage.setHeight(250.00D);
@@ -100,11 +107,12 @@ public class GestorVistes {
 				TallerController tallerController = loader.getController();
 				tallerController.setVehiclePassat((Vehicle)objectePassat);
 			}			
-	        Stage appStage = new Stage();
+	        Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 			Scene scene = new Scene(parent);
 	        appStage.setScene(scene);
 	        appStage.show();
-	        appStage.setMaximized(true);
+        	appStage.setWidth(screenWidth);
+        	appStage.setHeight(screenHeight);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
